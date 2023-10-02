@@ -1,4 +1,4 @@
-#Tipo Abstrato Set com Hash Table
+# Tipo Abstrato Set com Hash Table
 
 Este é um exemplo de implementação de um Tipo Abstrato Set (conjunto) em Python usando uma estrutura de dados de tabela hash. O conjunto implementado possui as seguintes operações: `insert`, `delete`, `search`, `union`, `intersection` e `difference`.
 
