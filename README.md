@@ -57,8 +57,3 @@ Aqui estão as análises de complexidade de tempo e espaço para cada operação
   - O(N), onde N é o número total de elementos nos dois conjuntos. Isso ocorre devido à iteração sobre ambos os conjuntos e à exclusão de elementos da tabela hash resultante.
 - Complexidade de Espaço:
   - O(N), para criar o conjunto resultante da diferença.
-
-## Exemplo de Uso
-
-Veja o código de exemplo fornecido nos arquivos `main.py`, `set.py` e `hashTable.py` para exemplos de uso das operações do conjunto.
-
