@@ -36,14 +36,9 @@ class Set(hashTable):
   def union(self, pset):
     for key in range(pset.patFactor, pset.size + 1, 2):
       val = pset.search(key)
-      print(key, val)
       if val is not False and val is not None:
         self.insert(val)
         pset.delete(key)
-      else:
-        continue
-    print(set.table)
-    return self
 
   def intersection(self, pset):
     pass
