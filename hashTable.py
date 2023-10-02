@@ -21,5 +21,6 @@ class hashTable:
         
   def __delitem__(self, key):
     h = self.getHash(key)
+    b = self.table[h]
     self.table[h] = None
-    
+    return b
