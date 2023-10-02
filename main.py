@@ -1,7 +1,4 @@
-from hashTable import hashTable
-
-from Set import Set
-
+from set import Set
 
 if __name__ == "__main__":
   set = Set(10)
