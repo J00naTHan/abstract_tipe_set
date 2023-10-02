@@ -60,4 +60,5 @@ Analisando tempo e espaço da minha implementação, podemos chegar à seguinte 
 
 ## Créditos
 
-- Implementação de hash table: [codebasics](https://github.com/codebasics/data-structures-algorithms-python/tree/master/data_structures/4_HashTable)
+- Implementação de hash table encontrada no blog: [Roy's Blog](https://shantoroy.com/python/hash-table-in-python/)
+- Baseada na implementação de: [codebasics](https://github.com/codebasics/data-structures-algorithms-python/blob/master/data_structures/4_HashTable/4_HashTable.ipynb)
