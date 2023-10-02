@@ -1,59 +1,63 @@
 # Tipo Abstrato Set com Hash Table
 
-Este é um exemplo de implementação de um Tipo Abstrato Set (conjunto) em Python usando uma estrutura de dados de tabela hash. O conjunto implementado possui as seguintes operações: `insert`, `delete`, `search`, `union`, `intersection` e `difference`.
+Esta é minha implementação de tipo abstrato set (conjunto), feita inteiramente em Python, usando como forma de controle de dados a estrutura de dados hash table. O tipo implementado possui as operações: `insert`, `delete`, `search`, `union`, `intersection` e `difference`.
 
 ## Escolha da Estrutura de Dados
 
-Foi escolhida a estrutura de dados de tabela hash para a implementação do conjunto devido às seguintes vantagens:
+Optei pelo uso da hash table por conta de suas capacidades de:
 
-- **Inserção, Exclusão e Pesquisa Eficientes**: A tabela hash oferece operações de inserção, exclusão e pesquisa com tempo médio constante, tornando-as muito eficientes.
+- **Insert, Delete e Search Eficientes**: A tabela hash oferece operações de `insert`, `delete` e `search` com tempo médio e memória constantes, mostrando que é uma estrutura de dados interessante para esse propósito.
 
-- **Verificação de Duplicatas Simples**: É fácil evitar a duplicação de elementos em um conjunto usando uma tabela hash, pois os valores duplicados são naturalmente tratados.
+- **Espaço e Tempo Previsíveis**: A complexidade de tempo e espaço é geralmente previsível.
 
-- **Espaço e Tempo Previsíveis**: A complexidade de tempo e espaço é geralmente previsível e depende da carga da tabela.
+E também por ser uma estrutura já abordada em aula, e suas operações já terem sido demonstrados como potencialmente eficientes.
 
 ## Complexidade de Tempo e Espaço
 
-Aqui estão as análises de complexidade de tempo e espaço para cada operação no conjunto implementado, com base no seu código:
+Analisando tempo e espaço da minha implementação, podemos chegar à seguinte conclusão:
 
-### `insert(val)`
+### `Insert`
 
 - Complexidade de Tempo:
-  - O(1) em média, devido à inserção direta na tabela hash.
+  - O(1) em média, devido à inserção direta na tabela hash por meio de um índice.
 - Complexidade de Espaço:
   - O(1) em média, para armazenar o valor na tabela hash.
 
-### `delete(key)`
+### `Delete`
 
 - Complexidade de Tempo:
-  - O(1) em média, para excluir um valor da tabela hash.
+  - O(1) em média, para excluir um valor da tabela hash, graças à localização do valor diretamente na tabela.
 - Complexidade de Espaço:
   - O(1) em média, pois a exclusão libera espaço na tabela.
 
-### `search(key)`
+### `Search`
 
 - Complexidade de Tempo:
-  - O(1) em média, para encontrar um valor na tabela hash.
+  - O(1) em média, para encontrar um valor na tabela hash, aproveitando-se da mesma característica citada anteriormente.
 - Complexidade de Espaço:
   - O(1) em média, pois não há alocação de espaço adicional.
 
-### `union(pset)`
+### `Union`
 
 - Complexidade de Tempo:
-  - O(N), onde N é o número total de elementos nos dois conjuntos. Isso ocorre devido à iteração sobre ambos os conjuntos e à inserção de elementos na tabela hash resultante.
+  - O(N), porque temos a iteração por cada um dos dois conjuntos (cada iteração possui complexidade O(N)) e por fim, a comparação entre valores dos dois conjuntos que gera o conjunto resultante. 
 - Complexidade de Espaço:
-  - O(N), para criar o conjunto resultante da união.
+  - O(N), para criar o conjunto resultante da operação, que possui os valores de ambos os conjuntos iniciais.
 
-### `intersection(pset)`
+### `Intersection`
 
 - Complexidade de Tempo:
-  - O(N^2), onde N é o número total de elementos nos dois conjuntos. Isso ocorre devido à verificação de igualdade entre todos os pares de elementos.
+  - O(N^2), pois nesse caso se fez necessário o uso de loops encadeados, gerando complexidade quadrática. Na implementação, foi necessário cruzar os dados da tabela auxiliar com o loop pelo segundo conjunto, para realizar as comparações que resultam no conjunto final.
 - Complexidade de Espaço:
-  - O(N), para criar o conjunto resultante da interseção.
+  - O(N), para criar o conjunto resultante da interseção, nesse caso, a memória auxiliar é usada, mas possui menos entradas que o conjunto.
 
-### `difference(pset)`
+### `Difference`
 
 - Complexidade de Tempo:
-  - O(N), onde N é o número total de elementos nos dois conjuntos. Isso ocorre devido à iteração sobre ambos os conjuntos e à exclusão de elementos da tabela hash resultante.
+  - O(N), possui complexidade semelhante a da operação `union`, inclusive sua estrutura é semelhante, há a iteração sobre os dois conjuntos, e então, a comparação.
 - Complexidade de Espaço:
-  - O(N), para criar o conjunto resultante da diferença.
+  - O(N), referente ao conjunto resultante.
+
+## Créditos
+
+- Implementação de hash table: [codebasics](https://github.com/codebasics/data-structures-algorithms-python/tree/master/data_structures/4_HashTable)
