@@ -2,17 +2,17 @@ from hashTable import hashTable
 
 
 class Set(hashTable):
-  def __init__ (self, size):
+  def __init__ (self, size, patFactor = 0):
     super().__init__(size)
+    self.patFactor = self.pattern = patFactor
 
-  def insert(self, val, patFactor = 0):
-    pattern = 0 if patFactor == 0 else 1
-    if self.__getitem__(pattern) is None:
-      inserted = self.__setitem__(pattern, val)
-      pattern += 2
+  def insert(self, val):
+    if self.__getitem__(self.pattern) is None:
+      inserted = self.__setitem__(self.pattern, val)
+      self.pattern += 2
       return inserted
     else:
-      print("\nNão é possível adicionar dois itens com a mesma chave!")
+      print(f"\nNão é possível adicionar dois ou mais itens com a chave: {self.pattern}!")
       return False
 
   def delete(self, key):
@@ -23,16 +23,21 @@ class Set(hashTable):
       return 0
   
   def search(self, key):
-    key = str(key)
-    if self.__getitem__(key):
+    if self.__getitem__(key) is not False:
       return self.__getitem__(key)
     else:
-      return 0
+      return False
 
   def union(self, pset):
-    for x in range(pset.size):
-      item = self.search(x)
-      self.insert(item)
+    self.size += pset.size
+    for key in range(pset.patFactor, pset.size + 1, 2):
+      val = pset.search(key)
+      if val is not False or val is not None:
+        self.insert(val)
+        pset.delete(key)
+      else:
+        continue
+    return self
 
   def intersection(self, pset):
     pass
@@ -41,12 +46,24 @@ class Set(hashTable):
     pass
 
 if __name__ == "__main__":
-  set = Set(50)
-  pset = Set(10)
+  set = Set(10)
+  pset = Set(10, 1)
+
+  pset.insert(1)
+  
   set.insert(5)
-  pset.insert(10, 1)
-  for x in list(range(set.size * 2, 2)):
-    s = set.search(x)
-    print(f"Item: {s}")
-  s = set.delete("10")
-  print(s)
+  set.insert(7)
+  set.insert(5)
+  for key in range(set.patFactor, set.size + 1, 2):
+    if set.search(key) is not None:
+      print(key, set.search(key))
+  
+  pset.insert(10)
+
+  p = pset.search("1")  
+  s = set.search("0")
+
+  print("\n", p, s)
+
+  u = set.union(pset)
+  
